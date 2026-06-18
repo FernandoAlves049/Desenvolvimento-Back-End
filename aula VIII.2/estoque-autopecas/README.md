@@ -41,7 +41,7 @@ Para validar o fluxo de funcionamento real integrado ao banco de dados MySQL, eu
 
 ### Verificação da Integração com o Banco de Dados
 
-- Configurei as credenciais (`root` / `707070.hh`) no arquivo `application.properties` principal.
+-  Configurei as credenciais (`root` / `[oculta]`) no arquivo `application.properties` principal.
 - Utilizei o parâmetro `createDatabaseIfNotExist=true` na string de conexão do banco. Ao rodar a aplicação com `.\mvnw.cmd spring-boot:run`, o driver do MySQL criou automaticamente o banco de dados `estoque_autopecas` e o Hibernate gerou de forma transparente a tabela física `produto`.
 
 ### Verificação do Fluxo na Interface (CRUD)
