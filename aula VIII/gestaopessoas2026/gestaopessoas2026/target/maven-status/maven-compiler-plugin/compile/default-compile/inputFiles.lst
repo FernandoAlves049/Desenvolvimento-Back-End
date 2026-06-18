@@ -1,0 +1,13 @@
+D:\if 5º periodo\Desenvolvimento Back-End\aula VII\gestaopessoas2026\gestaopessoas2026\src\main\java\com\souza\gestaopessoas2026\config\DbSeeder.java
+D:\if 5º periodo\Desenvolvimento Back-End\aula VII\gestaopessoas2026\gestaopessoas2026\src\main\java\com\souza\gestaopessoas2026\controller\PessoaController.java
+D:\if 5º periodo\Desenvolvimento Back-End\aula VII\gestaopessoas2026\gestaopessoas2026\src\main\java\com\souza\gestaopessoas2026\controller\TesteExcecoesController.java
+D:\if 5º periodo\Desenvolvimento Back-End\aula VII\gestaopessoas2026\gestaopessoas2026\src\main\java\com\souza\gestaopessoas2026\exceptions\AcessoNaoAutorizadoException.java
+D:\if 5º periodo\Desenvolvimento Back-End\aula VII\gestaopessoas2026\gestaopessoas2026\src\main\java\com\souza\gestaopessoas2026\exceptions\ExceptionResponse.java
+D:\if 5º periodo\Desenvolvimento Back-End\aula VII\gestaopessoas2026\gestaopessoas2026\src\main\java\com\souza\gestaopessoas2026\exceptions\RequisicaoInvalidaException.java
+D:\if 5º periodo\Desenvolvimento Back-End\aula VII\gestaopessoas2026\gestaopessoas2026\src\main\java\com\souza\gestaopessoas2026\exceptions\ResourceNotFoundException.java
+D:\if 5º periodo\Desenvolvimento Back-End\aula VII\gestaopessoas2026\gestaopessoas2026\src\main\java\com\souza\gestaopessoas2026\Gestaopessoas2026Application.java
+D:\if 5º periodo\Desenvolvimento Back-End\aula VII\gestaopessoas2026\gestaopessoas2026\src\main\java\com\souza\gestaopessoas2026\handle\CustomExceptionHandler.java
+D:\if 5º periodo\Desenvolvimento Back-End\aula VII\gestaopessoas2026\gestaopessoas2026\src\main\java\com\souza\gestaopessoas2026\model\Pessoa.java
+D:\if 5º periodo\Desenvolvimento Back-End\aula VII\gestaopessoas2026\gestaopessoas2026\src\main\java\com\souza\gestaopessoas2026\repositories\PessoaRepository.java
+D:\if 5º periodo\Desenvolvimento Back-End\aula VII\gestaopessoas2026\gestaopessoas2026\src\main\java\com\souza\gestaopessoas2026\services\PessoaService.java
+D:\if 5º periodo\Desenvolvimento Back-End\aula VII\gestaopessoas2026\gestaopessoas2026\src\main\java\com\souza\gestaopessoas2026\services\ValidaIdService.java

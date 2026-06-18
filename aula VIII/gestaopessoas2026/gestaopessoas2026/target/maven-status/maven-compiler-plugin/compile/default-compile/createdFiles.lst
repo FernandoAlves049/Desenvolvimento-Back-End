@@ -1,0 +1,12 @@
+com\souza\gestaopessoas2026\exceptions\RequisicaoInvalidaException.class
+com\souza\gestaopessoas2026\controller\PessoaController.class
+com\souza\gestaopessoas2026\services\ValidaIdService.class
+com\souza\gestaopessoas2026\Gestaopessoas2026Application.class
+com\souza\gestaopessoas2026\repositories\PessoaRepository.class
+com\souza\gestaopessoas2026\exceptions\ResourceNotFoundException.class
+com\souza\gestaopessoas2026\exceptions\ExceptionResponse.class
+com\souza\gestaopessoas2026\exceptions\AcessoNaoAutorizadoException.class
+com\souza\gestaopessoas2026\services\PessoaService.class
+com\souza\gestaopessoas2026\handle\CustomExceptionHandler.class
+com\souza\gestaopessoas2026\controller\TesteExcecoesController.class
+com\souza\gestaopessoas2026\model\Pessoa.class

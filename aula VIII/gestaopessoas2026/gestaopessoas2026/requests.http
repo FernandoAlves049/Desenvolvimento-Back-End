@@ -1,0 +1,37 @@
+### Criar pessoa
+POST http://localhost:8080/pessoas
+Content-Type: application/json
+
+{
+  "nome": "fernando",
+  "sobrenome": "souza",
+  "endereco": "rua a, 123",
+  "genero": "masculino"
+}
+
+### Atualizar pessoa
+PUT http://localhost:8080/pessoas
+Content-Type: application/json
+
+{
+  "id": 1,
+  "nome": "maria",
+  "sobrenome": "silva",
+  "endereco": "rua b, 456",
+  "genero": "Feminino"
+}
+
+### Buscar pessoa por id
+GET http://localhost:8080/pessoas/1
+
+### Buscar todas as pessoas
+GET http://localhost:8080/pessoas
+
+### Testar bad request
+GET http://localhost:8080/teste/bad/invalido
+
+### Testar unauthorized
+GET http://localhost:8080/teste/nao/bloqueado
+
+### Testar erro interno
+GET http://localhost:8080/teste/int/erro
