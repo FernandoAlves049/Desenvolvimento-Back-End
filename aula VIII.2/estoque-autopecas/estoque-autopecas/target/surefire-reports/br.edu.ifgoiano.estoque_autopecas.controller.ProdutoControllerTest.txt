@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: br.edu.ifgoiano.estoque_autopecas.controller.ProdutoControllerTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.956 s -- in br.edu.ifgoiano.estoque_autopecas.controller.ProdutoControllerTest

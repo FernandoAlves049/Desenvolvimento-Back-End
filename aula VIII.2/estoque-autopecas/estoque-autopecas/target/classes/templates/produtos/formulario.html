@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${titulo}">Formulário de Peça</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon">AP</div>
+                <div>
+                    <h1 th:text="${titulo}">Formulário de Peça</h1>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary);">Preencha as características da autopeça</p>
+                </div>
+            </div>
+            <a th:href="@{/produtos}" class="btn btn-secondary">Voltar ao Painel</a>
+        </header>
+
+        <!-- Mensagens de Erro de Validação -->
+        <div th:if="${mensagemErro}" class="alert alert-error">
+            <span style="font-size: 1.2rem; font-weight: bold;">⚠</span>
+            <span th:text="${mensagemErro}">Mensagem de erro de validação.</span>
+        </div>
+
+        <!-- Formulário -->
+        <div class="card-form">
+            <form th:action="@{/produtos/salvar}" th:object="${produto}" method="post">
+                <!-- ID Oculto para Edições -->
+                <input type="hidden" th:field="*{id}">
+
+                <!-- Nome da Peça -->
+                <div class="form-group">
+                    <label for="nome">Nome da Peça *</label>
+                    <input type="text" id="nome" th:field="*{nome}" class="form-control" placeholder="Ex: Pastilha de Freio Dianteira" required autocomplete="off">
+                </div>
+
+                <!-- Descrição -->
+                <div class="form-group">
+                    <label for="descricao">Descrição / Aplicação</label>
+                    <textarea id="descricao" th:field="*{descricao}" class="form-control" placeholder="Descreva os modelos compatíveis ou fabricante (Opcional)"></textarea>
+                </div>
+
+                <!-- Preço e Quantidade (Lado a Lado) -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="preco">Preço Unitário (R$) *</label>
+                        <input type="number" id="preco" th:field="*{preco}" class="form-control" placeholder="0.00" step="0.01" min="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade">Qtd em Estoque *</label>
+                        <input type="number" id="quantidade" th:field="*{quantidade}" class="form-control" placeholder="0" min="0" required>
+                    </div>
+                </div>
+
+                <!-- Peso e Tamanho (Lado a Lado) -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="peso">Peso da Peça (kg) *</label>
+                        <input type="number" id="peso" th:field="*{peso}" class="form-control" placeholder="0.00" step="0.001" min="0.001" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tamanho">Tamanho / Dimensões *</label>
+                        <input type="text" id="tamanho" th:field="*{tamanho}" class="form-control" placeholder="Ex: M, G, 15 polegadas" required autocomplete="off">
+                    </div>
+                </div>
+
+                <!-- Ações do Formulário -->
+                <div class="form-actions">
+                    <a th:href="@{/produtos}" class="btn btn-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Salvar no Estoque</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

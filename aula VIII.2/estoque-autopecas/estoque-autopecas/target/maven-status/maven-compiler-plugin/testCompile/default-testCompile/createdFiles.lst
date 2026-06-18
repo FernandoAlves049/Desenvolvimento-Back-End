@@ -1,0 +1,3 @@
+br\edu\ifgoiano\estoque_autopecas\service\ProdutoServiceTest.class
+br\edu\ifgoiano\estoque_autopecas\controller\ProdutoControllerTest.class
+br\edu\ifgoiano\estoque_autopecas\EstoqueAutopecasApplicationTests.class

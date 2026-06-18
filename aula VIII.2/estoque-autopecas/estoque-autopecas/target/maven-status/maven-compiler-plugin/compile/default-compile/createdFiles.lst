@@ -1,0 +1,6 @@
+br\edu\ifgoiano\estoque_autopecas\controller\HomeController.class
+br\edu\ifgoiano\estoque_autopecas\controller\ProdutoController.class
+br\edu\ifgoiano\estoque_autopecas\repository\ProdutoRepository.class
+br\edu\ifgoiano\estoque_autopecas\EstoqueAutopecasApplication.class
+br\edu\ifgoiano\estoque_autopecas\service\ProdutoService.class
+br\edu\ifgoiano\estoque_autopecas\model\Produto.class

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Estoque - Autopeças</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon">AP</div>
+                <div>
+                    <h1>Controle de Estoque</h1>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary);">Sistema Integrado de Autopeças</p>
+                </div>
+            </div>
+            <a th:href="@{/produtos/novo}" class="btn btn-primary" id="btn-cadastrar-nova-peca">
+                <span>+</span> Cadastrar Nova Peça
+            </a>
+        </header>
+
+        <!-- Mensagens de Feedback -->
+        <div th:if="${mensagemSucesso}" class="alert alert-success">
+            <span style="font-size: 1.2rem; font-weight: bold;">✓</span>
+            <span th:text="${mensagemSucesso}">Mensagem de sucesso.</span>
+        </div>
+        <div th:if="${mensagemErro}" class="alert alert-error">
+            <span style="font-size: 1.2rem; font-weight: bold;">⚠</span>
+            <span th:text="${mensagemErro}">Mensagem de erro.</span>
+        </div>
+
+        <!-- Painel de Estatísticas -->
+        <div class="stats-grid">
+            <div class="stat-card blue">
+                <span class="stat-label">Total de Peças</span>
+                <span class="stat-value" th:text="${totalItens}">0</span>
+            </div>
+            <div class="stat-card cyan">
+                <span class="stat-label">Valor em Estoque</span>
+                <span class="stat-value" th:text="'R$ ' + ${#numbers.formatDecimal(valorTotal, 1, 'POINT', 2, 'COMMA')}">R$ 0,00</span>
+            </div>
+            <div class="stat-card green">
+                <span class="stat-label">Variedade de Itens</span>
+                <span class="stat-value" th:text="${totalPecasUnicas}">0</span>
+            </div>
+            <div class="stat-card amber">
+                <span class="stat-label">Estoque Baixo (&lt; 5)</span>
+                <span class="stat-value" th:text="${alertaEstoqueBaixo}">0</span>
+            </div>
+        </div>
+
+        <!-- Barra de Busca -->
+        <div class="actions-bar">
+            <form th:action="@{/produtos}" method="get" class="search-form">
+                <input type="text" name="search" th:value="${search}" placeholder="Pesquisar por nome da peça..." class="input-search" id="input-busca-peca">
+                <button type="submit" class="btn btn-accent">Buscar</button>
+                <a th:if="${search != null && !search.isEmpty()}" th:href="@{/produtos}" class="btn btn-secondary">Limpar</a>
+            </form>
+        </div>
+
+        <!-- Tabela de Produtos -->
+        <div class="card-table">
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Peça</th>
+                            <th>Descrição</th>
+                            <th>Preço Unitário</th>
+                            <th>Qtd em Estoque</th>
+                            <th>Peso</th>
+                            <th>Tamanho</th>
+                            <th>Status</th>
+                            <th style="text-align: right;">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="prod : ${produtos}">
+                            <td th:text="'#' + ${prod.id}" style="font-weight: 600; color: var(--accent);">#1</td>
+                            <td th:text="${prod.nome}" style="font-weight: 500;">Nome do Produto</td>
+                            <td th:text="${prod.descricao != null && !prod.descricao.isEmpty() ? prod.descricao : '-'}" style="color: var(--text-secondary);">Descrição</td>
+                            <td th:text="'R$ ' + ${#numbers.formatDecimal(prod.preco, 1, 'POINT', 2, 'COMMA')}">R$ 0,00</td>
+                            <td th:text="${prod.quantidade}" style="font-weight: 500;">0</td>
+                            <td th:text="${#numbers.formatDecimal(prod.peso, 1, 2, 'COMMA')} + ' kg'">0,00 kg</td>
+                            <td th:text="${prod.tamanho}">M</td>
+                            <td>
+                                <span th:if="${prod.quantidade == 0}" class="badge badge-out-of-stock">Sem Estoque</span>
+                                <span th:if="${prod.quantidade > 0 && prod.quantidade < 5}" class="badge badge-low-stock">Estoque Baixo</span>
+                                <span th:if="${prod.quantidade >= 5}" class="badge badge-in-stock">Em Estoque</span>
+                            </td>
+                            <td style="text-align: right;">
+                                <div style="display: inline-flex; gap: 0.5rem; justify-content: flex-end;">
+                                    <a th:href="@{/produtos/editar/{id}(id=${prod.id})}" class="btn btn-secondary btn-sm" th:id="'btn-editar-' + ${prod.id}">Editar</a>
+                                    <a th:href="@{/produtos/deletar/{id}(id=${prod.id})}" class="btn btn-danger btn-sm" th:id="'btn-deletar-' + ${prod.id}"
+                                       onclick="return confirm('Deseja realmente remover esta autopeça do estoque?');">Excluir</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr th:if="${produtos.isEmpty()}">
+                            <td colspan="9">
+                                <div class="empty-state">
+                                    <div class="empty-state-icon">⚡</div>
+                                    <p>Nenhuma autopeça cadastrada ou encontrada para a pesquisa realizada.</p>
+                                    <a th:href="@{/produtos/novo}" class="btn btn-accent btn-sm">Adicionar Primeira Peça</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
